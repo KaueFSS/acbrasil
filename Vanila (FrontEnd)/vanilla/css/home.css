@@ -1,0 +1,632 @@
+/* === TICKER FINANCEIRO (barra de cotações) === */
+.ticker-financeiro {
+  background-color: #091429;
+  color: white;
+  padding: 9px 30px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 13px;
+  border-bottom: 1px solid #1e2d50;
+  flex-wrap: wrap;
+}
+
+.ticker-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ticker-icone {
+  color: #f5c518; /* ícones em amarelo */
+  font-size: 12px;
+}
+
+.ticker-label {
+  color: #a0aec0;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.ticker-valor {
+  font-weight: bold;
+  color: white;
+}
+
+.ticker-variacao {
+  font-size: 12px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* variação positiva = verde, negativa = vermelho */
+.ticker-variacao.positiva {
+  color: #48bb78;
+}
+
+.ticker-variacao.negativa {
+  color: #fc5c65;
+}
+
+.ticker-sep {
+  color: #2d4070;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.ticker-atualizacao {
+  margin-left: auto;
+  color: #4a5568;
+  font-size: 11px;
+  font-style: italic;
+}
+
+/* === SEÇÃO HERO (banner principal) === */
+.hero {
+  background: linear-gradient(135deg, #0d1b3e 0%, #1a3a6e 50%, #0d1b3e 100%);
+  padding: 80px 30px 0;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* decoração de fundo — círculo amarelo no canto superior direito */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(245, 197, 24, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* decoração de fundo — círculo azul no canto inferior esquerdo */
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 60px;
+  left: -60px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(26, 86, 219, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  display: none;
+}
+
+/* conteúdo centralizado do hero */
+.hero-conteudo {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding-bottom: 50px;
+}
+
+/* tag pequena acima do título */
+.hero-subtag {
+  display: inline-block;
+  background-color: rgba(245, 197, 24, 0.15);
+  color: #f5c518;
+  border: 1px solid rgba(245, 197, 24, 0.4);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.hero-titulo {
+  font-size: 46px;
+  font-weight: bold;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.hero-descricao {
+  font-size: 17px;
+  color: #b0bdd6;
+  line-height: 1.7;
+  margin-bottom: 35px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* botões do hero lado a lado */
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-hero-primario {
+  background-color: #1a56db;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.2s;
+}
+
+.btn-hero-primario:hover {
+  background-color: #1646b8;
+}
+
+/* botão secundário com borda transparente */
+.btn-hero-secundario {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: bold;
+  padding: 14px 28px;
+  border-radius: 8px;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.btn-hero-secundario:hover {
+  border-color: #f5c518;
+  color: #f5c518;
+}
+
+/* barra de estatísticas abaixo do hero */
+.hero-stats {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 50px;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hero-stat-item:last-child {
+  border-right: none;
+}
+
+.hero-stat-numero {
+  font-size: 28px;
+  font-weight: bold;
+  color: #f5c518; /* número em amarelo */
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-size: 12px;
+  color: #a0aec0;
+  margin-top: 5px;
+}
+
+/* === SEÇÃO DE ARTIGOS RECENTES === */
+.artigos-recentes {
+  padding: 70px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* cabeçalho das seções (título + link "ver todos") */
+.secao-cabecalho {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 36px;
+}
+
+.secao-cabecalho h2 {
+  font-size: 26px;
+  color: #0d1b3e;
+  position: relative;
+  padding-bottom: 12px;
+}
+
+/* linha amarela embaixo do título da seção */
+.secao-cabecalho h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #f5c518;
+  border-radius: 2px;
+}
+
+.ver-todos {
+  color: #1a56db;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ver-todos:hover {
+  color: #0d1b3e;
+}
+
+/* grid de cards dos artigos */
+.cards-artigos {
+  display: flex;
+  gap: 24px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+/* texto que aparece enquanto os artigos carregam */
+.carregando {
+  color: #a0aec0;
+  text-align: center;
+  padding: 40px;
+  width: 100%;
+}
+
+/* === CARD DE ARTIGO === */
+.card-artigo {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  width: calc(33.333% - 16px);
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-artigo:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(13, 27, 62, 0.12);
+}
+
+.card-artigo img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* imagem não distorce */
+}
+
+.card-conteudo {
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-conteudo h3 {
+  font-size: 15px;
+  color: #0d1b3e;
+  margin: 8px 0 10px;
+  line-height: 1.4;
+}
+
+.card-conteudo p {
+  font-size: 13px;
+  color: #718096;
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* === TAGS DE CATEGORIA === */
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tag-governanca {
+  background-color: #ebf4ff;
+  color: #1a56db;
+}
+
+.tag-esg {
+  background-color: #f0fff4;
+  color: #276749;
+}
+
+.tag-carreira {
+  background-color: #fff7ed;
+  color: #c05621;
+}
+
+.tag-mercado {
+  background-color: #fefce8;
+  color: #854d0e;
+}
+
+/* rodapé do card com data e botão */
+.card-rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.meta-info span {
+  font-size: 11px;
+  color: #a0aec0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* botão "ler mais" dos cards */
+.btn-ler-mais {
+  background-color: #1a56db;
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.btn-ler-mais:hover {
+  background-color: #1646b8;
+}
+
+.btn-ler-mais.pequeno {
+  font-size: 12px;
+  padding: 6px 12px;
+}
+
+/* === SEÇÃO "SOBRE" === */
+.sobre {
+  background-color: #f7f9fc;
+  padding: 80px 30px;
+  border-top: 1px solid #e8edf5;
+  border-bottom: 1px solid #e8edf5;
+}
+
+/* layout em duas colunas: texto e números */
+.sobre-conteudo {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+
+.sobre-texto {
+  flex: 1;
+}
+
+.sobre-subtag {
+  display: inline-block;
+  background-color: #ebf4ff;
+  color: #1a56db;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.sobre-texto h2 {
+  font-size: 34px;
+  color: #0d1b3e;
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.sobre-texto p {
+  font-size: 15px;
+  color: #4a5568;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.btn-sobre {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #1a56db;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 12px 24px;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: background-color 0.2s;
+}
+
+.btn-sobre:hover {
+  background-color: #1646b8;
+}
+
+/* grid 2x2 com os números da associação */
+.sobre-numeros {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  min-width: 320px;
+}
+
+.numero-item {
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 24px 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: box-shadow 0.2s;
+}
+
+.numero-item:hover {
+  box-shadow: 0 4px 16px rgba(13, 27, 62, 0.08);
+}
+
+.numero-icone {
+  font-size: 22px;
+  color: #f5c518;
+  margin-bottom: 4px;
+}
+
+.numero {
+  font-size: 30px;
+  font-weight: bold;
+  color: #0d1b3e;
+  line-height: 1;
+}
+
+.numero-label {
+  font-size: 12px;
+  color: #718096;
+}
+
+/* === SEÇÃO "EM DESTAQUE" === */
+.em-destaque {
+  padding: 70px 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards-destaque {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 900px) {
+  .hero-titulo {
+    font-size: 34px;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+  }
+
+  .hero-stat-item {
+    padding: 16px 24px;
+  }
+
+  /* empilha texto e números na seção sobre */
+  .sobre-conteudo {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .sobre-numeros {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .card-artigo {
+    width: calc(50% - 12px);
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding: 60px 20px 0;
+    min-height: auto;
+  }
+
+  .hero-titulo {
+    font-size: 26px;
+  }
+
+  .hero-descricao {
+    font-size: 15px;
+  }
+
+  .hero-stat-item {
+    padding: 14px 16px;
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .hero-stat-numero {
+    font-size: 22px;
+  }
+
+  .artigos-recentes,
+  .em-destaque {
+    padding: 50px 20px;
+  }
+
+  /* card ocupa 100% no celular */
+  .card-artigo {
+    width: 100%;
+  }
+
+  .ticker-financeiro {
+    gap: 12px;
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .ticker-atualizacao {
+    display: none;
+  }
+
+  .sobre {
+    padding: 50px 20px;
+  }
+
+  .sobre-texto h2 {
+    font-size: 26px;
+  }
+
+  .sobre-numeros {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
