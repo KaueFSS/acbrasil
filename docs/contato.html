@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ACBrasil - Contato</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/contato.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo ACBrasil" class="logo" />
+      </a>
+      <button class="btn-hamburger" aria-label="Abrir menu">&#9776;</button>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="o-que-fazemos.html">O que fazemos</a>
+        <a href="artigos.html">Artigos</a>
+        <a href="contato.html" class="ativo">Contato</a>
+      </nav>
+      <div class="pesquisa-container">
+        <i class="fa-solid fa-magnifying-glass pesquisa-icone"></i>
+        <input type="text" placeholder="Pesquisar..." class="pesquisa" aria-label="Buscar artigos" />
+      </div>
+      <a href="associe-se.html" class="btn-associe">Associe-se à ACBrasil</a>
+    </div>
+  </header>
+
+  <!-- Banner full-width -->
+  <section class="page-banner">
+    <div class="page-banner-conteudo">
+      <p class="page-banner-tag"><i class="fa-solid fa-envelope"></i> Fale conosco</p>
+      <h1>Entre em Contato</h1>
+      <p class="page-banner-sub">Nossa equipe responde em até 1 dia útil</p>
+    </div>
+  </section>
+
+  <main class="contato-main">
+
+    <div class="contato-grid">
+
+      <!-- Coluna esquerda: informações de contato -->
+      <aside class="contato-info">
+
+        <div class="info-topo">
+          <h2>Informações de contato</h2>
+          <p>Prefere falar direto? Use um dos canais abaixo.</p>
+        </div>
+
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="info-card-icone">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <span class="info-card-label">WhatsApp</span>
+              <a href="https://web.whatsapp.com/" target="_blank" rel="noopener">Conversar agora</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-icone">
+              <i class="fa-solid fa-envelope"></i>
+            </div>
+            <div>
+              <span class="info-card-label">E-mail</span>
+              <a href="mailto:contato@acbrasil.org.br">contato@acbrasil.org.br</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-icone">
+              <i class="fa-brands fa-linkedin-in"></i>
+            </div>
+            <div>
+              <span class="info-card-label">LinkedIn</span>
+              <a href="https://www.linkedin.com/company/associacao-de-conselheiros-do-brasil/" target="_blank" rel="noopener">ACBrasil</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-card-icone">
+              <i class="fa-brands fa-youtube"></i>
+            </div>
+            <div>
+              <span class="info-card-label">YouTube</span>
+              <a href="https://www.youtube.com/@acbrasil" target="_blank" rel="noopener">@acbrasil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-rodape">
+          <i class="fa-regular fa-clock"></i>
+          <span>Atendimento: Seg a Sex, 9h às 18h</span>
+        </div>
+
+      </aside>
+
+      <!-- Coluna direita: formulário -->
+      <section class="contato-form-section">
+        <div class="contato-box">
+
+          <div class="form-topo">
+            <h2>Deixe sua mensagem</h2>
+            <p>Preencha os campos abaixo e retornaremos o quanto antes.</p>
+          </div>
+
+          <form class="form-contato" onsubmit="enviarForm(event)">
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="nome"><i class="fa-regular fa-user"></i> Nome completo</label>
+                <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+              </div>
+              <div class="form-group">
+                <label for="email"><i class="fa-regular fa-envelope"></i> E-mail</label>
+                <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="telefone"><i class="fa-solid fa-phone"></i> Telefone</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(11) 99999-9999" />
+              </div>
+              <div class="form-group">
+                <label for="assunto"><i class="fa-solid fa-tag"></i> Assunto</label>
+                <select id="assunto" name="assunto">
+                  <option value="" disabled selected>Selecione um assunto</option>
+                  <option value="associacao">Associação</option>
+                  <option value="governanca">Governança Corporativa</option>
+                  <option value="parceria">Parceria</option>
+                  <option value="imprensa">Imprensa</option>
+                  <option value="outro">Outro</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full">
+              <label for="mensagem"><i class="fa-regular fa-comment"></i> Mensagem</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Escreva sua mensagem..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-enviar">
+              <i class="fa-solid fa-paper-plane"></i> Enviar mensagem
+            </button>
+
+          </form>
+
+          <!-- Feedback de envio -->
+          <div class="form-sucesso" id="form-sucesso" style="display:none;">
+            <i class="fa-solid fa-circle-check"></i>
+            <strong>Mensagem enviada!</strong>
+            <p>Obrigado pelo contato. Retornaremos em breve.</p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+
+      <div class="footer-logo">
+        <img src="assets/logo.png" alt="Logo ACBrasil"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <p class="footer-logo-nome">ACBrasil</p>
+        <p>Associação de Conselheiros do Brasil — promovendo governança e desenvolvimento sustentável.</p>
+      </div>
+
+      <div class="footer-links">
+        <h3>Páginas</h3>
+        <a href="index.html">Home</a>
+        <a href="artigos.html">Artigos</a>
+        <a href="quem-somos.html">Quem Somos</a>
+        <a href="o-que-fazemos.html">O que fazemos</a>
+        <a href="contato.html">Contato</a>
+      </div>
+
+      <div class="footer-descricao">
+        <h3>Sobre nós</h3>
+        <p>A ACBrasil congrega profissionais que atuam em Conselhos de Administração, Consultivos e Fiscais, promovendo boas práticas de Governança Corporativa em empresas brasileiras.</p>
+      </div>
+
+      <div class="footer-direito">
+        <h3>Siga-nos</h3>
+        <a href="associe-se.html" class="btn-associe">Associe-se à ACBrasil</a>
+        <div class="footer-redes">
+          <a href="https://www.linkedin.com/company/associacao-de-conselheiros-do-brasil/" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+          <a href="https://web.whatsapp.com/" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a href="https://www.youtube.com/@acbrasil" target="_blank" rel="noopener"><i class="fa-brands fa-youtube"></i> YouTube</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ACBrasil — Associação de Conselheiros do Brasil. Todos os direitos reservados.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">LGPD</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/header.js"></script>
+  <script>
+    function enviarForm(e) {
+      e.preventDefault();
+      document.querySelector('.form-contato').style.display = 'none';
+      document.getElementById('form-sucesso').style.display = 'flex';
+    }
+  </script>
+
+</body>
+</html>
