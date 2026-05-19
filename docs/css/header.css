@@ -27,7 +27,7 @@ header {
   gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
-  height: 100px;
+  height: 120px;
 }
 
 .header-logo-link {
@@ -39,7 +39,7 @@ header {
 
 /* logo da ACBrasil */
 .logo {
-  height: 86px;
+  height: 150px;
   width: auto;
   flex-shrink: 0;
   transition: opacity 0.2s, transform 0.25s;
@@ -278,6 +278,6 @@ nav a.ativo::after {
   }
 
   .logo {
-    height: 54px;
+    height: 62px;
   }
 }
